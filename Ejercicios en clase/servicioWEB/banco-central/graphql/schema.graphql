@@ -1,0 +1,14 @@
+type Coti {
+    id: ID!
+    fec: String!
+    val: Float!
+    ofi: Float!
+}
+
+type Query {
+    obtenerCoti(fec: String! @eq): Coti @find
+}
+
+type Mutation {
+    registrarCoti(fec: String!, val: Float!): Coti @field(resolver: "App\\Http\\Controllers\\CotiController@registrar")
+}
